@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đặt phòng · Demo thanh toán QR</title>
+  <meta name="description" content="Demo: phòng cuối cùng — chỉ khách quét mã QR đầu tiên được chuyển khoản.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%279%27 fill=%27%230f766e%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial%27 font-size=%2716%27 font-weight=%27700%27 fill=%27white%27 text-anchor=%27middle%27%3ED%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>if (new URLSearchParams(location.search).get('embed') === '1') document.documentElement.classList.add('embed');</script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">D</span><span>Khách sạn Demo<small>Thử nghiệm thanh toán QR</small></span></a>
+    <nav class="nav" aria-label="Điều hướng">
+      <a href="index.html" aria-current="page">Đặt phòng</a>
+      <a href="demo.html">Mô phỏng 2 khách</a>
+      <a href="admin.html">Quản trị</a>
+    </nav>
+  </header>
+
+  <main class="wrap stack" id="app" aria-live="polite">
+    <section class="card result info"><div class="spinner"></div><p class="muted">Đang tải…</p></section>
+  </main>
+
+  <footer class="foot">Trang thử nghiệm cơ chế thanh toán — không phải website thương mại.</footer>
+
+  <script src="config.js"></script>
+  <script src="assets/vendor/qrcode.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/checkout.js"></script>
+</body>
+</html>

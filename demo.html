@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mô phỏng 2 khách · Demo thanh toán QR</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%279%27 fill=%27%230f766e%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial%27 font-size=%2716%27 font-weight=%27700%27 fill=%27white%27 text-anchor=%27middle%27%3ED%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">D</span><span>Khách sạn Demo<small>Thử nghiệm thanh toán QR</small></span></a>
+    <nav class="nav" aria-label="Điều hướng">
+      <a href="index.html">Đặt phòng</a>
+      <a href="demo.html" aria-current="page">Mô phỏng 2 khách</a>
+      <a href="admin.html">Quản trị</a>
+    </nav>
+  </header>
+
+  <main class="wrap wide stack">
+    <section class="card">
+      <h1>Hai khách tranh nhau phòng cuối cùng</h1>
+      <p class="muted">Hai khung bên dưới là hai khách hàng độc lập. Bấm nút để cả hai cùng bấm “Thanh toán” cách nhau dưới 1 giây — cả hai đều nhận mã QR giữ chỗ.
+        Sau đó dùng <b>2 điện thoại</b> quét 2 mã: chỉ người quét trước được chuyển sang bước chuyển khoản, người quét sau bị từ chối.</p>
+      <div class="controls" style="margin-top:12px">
+        <div>Phòng: <span id="roomBadge" class="badge">Đang tải…</span></div>
+        <label>Khách B bấm sau khách A <input class="gap-input" type="number" id="gap" value="300" min="0" max="999" step="50"> ms</label>
+        <button class="btn primary" id="bothBtn" type="button">⚡ Cả 2 khách cùng bấm “Thanh toán”</button>
+        <button class="btn" id="resetBtn" type="button" hidden>↺ Reset demo</button>
+      </div>
+      <p class="small muted" id="clickLog" style="margin-top:10px"></p>
+    </section>
+
+    <div class="duo">
+      <figure class="pane">
+        <figcaption>Khách A <span class="muted small">— điện thoại thứ nhất quét mã này</span></figcaption>
+        <iframe id="frameA" src="index.html?embed=1&amp;slot=A&amp;name=Kh%C3%A1ch%20A" title="Khách A"></iframe>
+      </figure>
+      <figure class="pane">
+        <figcaption>Khách B <span class="muted small">— điện thoại thứ hai quét mã này</span></figcaption>
+        <iframe id="frameB" src="index.html?embed=1&amp;slot=B&amp;name=Kh%C3%A1ch%20B" title="Khách B"></iframe>
+      </figure>
+    </div>
+
+    <section class="card">
+      <h2>Kịch bản thử nghiệm</h2>
+      <ol class="howto">
+        <li>Mở <a href="admin.html" target="_blank">Quản trị</a> → <b>Reset demo</b> để phòng trở về trạng thái “Còn 1 phòng”.</li>
+        <li>Bấm <b>⚡ Cả 2 khách cùng bấm “Thanh toán”</b> — hai mã QR giữ chỗ xuất hiện gần như cùng lúc.</li>
+        <li>Điện thoại 1 quét mã của Khách A, điện thoại 2 quét mã của Khách B (bằng Camera hoặc Zalo), cố gắng quét gần như cùng lúc.</li>
+        <li>Điện thoại quét trước: hiện <b>“Bạn là người đầu tiên!”</b> kèm nút mở app ngân hàng / QR chuyển khoản tới tài khoản của bạn.
+          Khung khách tương ứng trên máy tính tự đổi sang mã VietQR chuyển khoản.</li>
+        <li>Điện thoại quét sau: hiện <b>“Giao dịch không thể tiếp tục”</b>, không có bất kỳ thông tin chuyển khoản nào. Quét lại vẫn bị từ chối.</li>
+        <li>Chuyển khoản thật (số tiền nhỏ) → bấm “Tôi đã chuyển khoản” → vào Quản trị bấm <b>Xác nhận đã nhận tiền</b> → phòng chuyển sang “Đã bán”.</li>
+      </ol>
+      <p class="small muted">Muốn kiểm tra trường hợp hàng chục người quét trong cùng 1 mili-giây? Dùng <b>Race test</b> trong trang Quản trị.</p>
+    </section>
+  </main>
+
+  <footer class="foot">Trang thử nghiệm cơ chế thanh toán — không phải website thương mại.</footer>
+
+  <script src="config.js"></script>
+  <script src="assets/common.js"></script>
+  <script src="assets/demo.js"></script>
+</body>
+</html>
