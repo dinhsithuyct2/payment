@@ -7,8 +7,8 @@
 //  được các hàm public.paydemo_* — bảng dữ liệu bị khoá hoàn toàn.
 // =====================================================================
 window.PAYDEMO_CONFIG = {
-  supabaseUrl: '',
-  supabaseKey: '',
+  supabaseUrl: 'https://xuqkstllqjssblhkecnf.supabase.co',
+  supabaseKey: 'sb_publishable_HCjSaBVujqzTADEUjU4o8g_lS8RzrQK',
   roomId: 'P101',   // phải khớp với phòng tạo trong supabase/setup.sql
   pollMs: 1000      // chu kỳ cập nhật trạng thái (ms)
 };
